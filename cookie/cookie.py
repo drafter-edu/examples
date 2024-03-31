@@ -16,8 +16,8 @@ def index(state: State) -> Page:
 
 @route
 def cookie(state: State) -> Page:
-    #state.cookies += 1
-    return index(State(1))
+    state.cookies += 1
+    return index(state)
 
 
 assert_equal(
