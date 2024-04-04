@@ -1,5 +1,7 @@
 from drafter import *
+import drafter
 
+drafter.BASE_IMAGE_FOLDER = "/examples/adventure/"
 
 @dataclass
 class State:
