@@ -39,6 +39,31 @@
 
             Sk.configure({ read: builtinRead, __future__: Sk.python3 });
 
+			if (typeof Sk.console === "undefined") {
+			    Sk.console = {};
+			}
+			
+			Sk.console = {
+			    // TODO: Move handleError into this object, and make it so that drafter is a function that creates the object
+			    drafter: {},
+			    printPILImage: function (img) {
+			        document.body.append(img.image);
+			    },
+			    plot: function (chart) {
+			        let container = document.createElement("div");
+			        document.body.append(container);
+			        return {"html": [container]};
+			    },
+			    getWidth: function() {
+			        return 300;
+			    },
+			    getHeight: function() {
+			        return 300;
+			    }
+			};
+			
+			$.ajaxSetup({ cache: false });
+
             function startWebserver(pythonSite) {
                 try {
                     Sk.misceval
